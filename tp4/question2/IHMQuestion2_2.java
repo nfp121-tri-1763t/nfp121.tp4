@@ -11,6 +11,14 @@ public class IHMQuestion2_2 extends JFrame {
     private JButton boutonC = new JButton("C");
 
     private TextArea contenu = new TextArea(30, 80);
+    
+    private JButtonObserver jbo1;
+    private JButtonObserver jbo2;
+    private JButtonObserver jbo3;
+    
+    private JMouseObserver jmo1;
+    private JMouseObserver jmo2;
+    private JMouseObserver jmo3;
 
  
     public IHMQuestion2_2() {
@@ -38,6 +46,27 @@ public class IHMQuestion2_2 extends JFrame {
             // le bouton A a 1 observateur jmo1
             // le bouton B a 1 observateur jmo2
             // le bouton C a 1 observateur jmo3
+            
+             jbo1 = new JButtonObserver("jbo1", contenu);
+        jbo2 = new JButtonObserver("jbo2", contenu);
+        jbo3 = new JButtonObserver("jbo3", contenu);
+        
+        boutonA.addActionListener(jbo1);
+        boutonA.addActionListener(jbo2);
+        boutonA.addActionListener(jbo3);
+        
+        boutonB.addActionListener(jbo1);
+        boutonB.addActionListener(jbo2);
+        
+        boutonC.addActionListener(jbo1);
+        
+        jmo1 = new JMouseObserver("jmo1", contenu);
+        jmo2 = new JMouseObserver("jmo2", contenu);
+        jmo3 = new JMouseObserver("jmo3", contenu);
+
+        boutonA.addMouseListener(jmo1);
+        boutonB.addMouseListener(jmo2);
+        boutonC.addMouseListener(jmo3);
         
     }
     

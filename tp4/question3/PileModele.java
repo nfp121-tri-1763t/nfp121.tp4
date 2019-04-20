@@ -6,9 +6,9 @@ import question3.tp3.PilePleineException;
 
 public class PileModele<T> extends  java.util.Observable implements PileI<T> {
 
-    private PileI<T> pile;
+  
 
-    /* à compléter */
+   private PileI<T> pile;
 
     public PileModele(PileI<T> pile) {
         this.pile = pile;
@@ -21,11 +21,14 @@ public class PileModele<T> extends  java.util.Observable implements PileI<T> {
     }
 
     public T depiler() throws PileVideException {
-        return null;
+        T elementDepile = pile.depiler();
+        setChanged();
+        notifyObservers();
+        return elementDepile;
     }
 
     public T sommet() throws PileVideException {
-        return null;
+        return pile.sommet();
     }
 
     public int taille() {
@@ -47,6 +50,7 @@ public class PileModele<T> extends  java.util.Observable implements PileI<T> {
     public String toString() {
         return pile.toString();
     }
+
 }
 
 /**
